@@ -79,20 +79,6 @@ app.get('/index', function(req, res){
     res.redirect('/views/index.html');
 });
 
-app.get('/home', function(req, res){
-    res.redirect('/views/home.html');
-});
-
-app.get('/game', function(req, res){
-    res.redirect('/views/game.html');
-});
-
-app.get('/electronics', function(req, res){
-    res.redirect('/views/electronics.html');
-});
-app.get('/landing', function(req, res){
-    res.send('In landing page');
-});
 
 //end of routing
 //launching app on local host:8080;
