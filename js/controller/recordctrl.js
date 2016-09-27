@@ -2,13 +2,15 @@
  * Created by akc on 9/27/16.
  */
 angular.module('dead').controller("recordCtrl",["$scope", "record",function($scope, navService) {
-    $scope.person="";
+
+
+    //$scope.person="";
 
     console.log("From controller");
     console.log(record.person);
 
     $scope.$watch(function(){
-            return record.person;
+            return record.student;
 
         },
         function(newval, oldVal){
@@ -19,9 +21,27 @@ angular.module('dead').controller("recordCtrl",["$scope", "record",function($sco
                 console.log(oldVal);
                 console.log("oldVal");
 
-                $scope.person=newval;
+                $scope.student=newval;
             }
         });
+
+    $scope.$watch(function(){
+            return record.studentid;
+
+        },
+        function(newval, oldVal){
+            if (oldVal !=  newval){
+                console.log("from watchlist");
+                console.log(newval);
+                console.log("New val");
+                console.log(oldVal);
+                console.log("oldVal");
+
+                $scope.studentid=newval;
+            }
+        });
+
+
 
 }]);
 

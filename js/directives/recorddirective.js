@@ -4,7 +4,7 @@
 angular.module('dead').directive('recorddirective',function(){
     return{
         restrict: "EAC",
-        templateUrl: '/views/record.html',
+        templateUrl: '/views/form.html',
 
     };
 });

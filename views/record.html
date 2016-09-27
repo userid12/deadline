@@ -1,15 +1,22 @@
 
-<div class="container" ng-repeat="hello in person">
-    <div class="row">
-        <div class=""col-md-6>
-            <div class="panel panel-primary">
-                <div class="panel-body"><img class='img' ng-src= "{{ hello.imgpath}}"></div>
-                <div class="panel-footer">{{ hello.firstname}}{{hello.lastname}}></div>
+<div ng-repeat="hello in person" class="nav nav-pills nav-stacked">
+
+   <form name="uiform">
 
 
-            </div>
+           <div class="row">
+               <div class="col-md-05">Name: {{hello.lastname}} {{hello.firstname}}</div>
+               <div class="col-md-05"> Address: {{hello.address}}</div>
 
-        </div>
+               </div>
+       <div class="row">
+           <div class="col-md-05">Reaching No: {{hello.phonenumber</div>
 
-    </div>
+       </div>
+
+       <div class="row">
+           <div class="'col-md-05">Phone Number: {{hello.imgpath}}></div>
 </div>
+   </form>
+</div>
+
