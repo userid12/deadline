@@ -30,12 +30,11 @@ app.get("/",function(req,res){
     res.redirect('/views/index.html');
 });
 
-
 //GET
 app.get("/service/person",function (req,res,next) {
-    var ids=[];
 
-    var query ="SELECT * FROM customer";
+    var ids=[];
+    var query ="SELECT * FROM PERSON";
     req.getConnection(function (err,connection) {
         if(err) return next(err);
 
@@ -51,11 +50,12 @@ app.get("/service/person",function (req,res,next) {
 });
 
 
-app.get("/service/customer/:id",function (req,res,next) {
+
+app.get("/service/person/:personid",function (req,res,next) {
     var ids=[];
-    var customerid=req.params.customerid;
-    ids.push(customerid);
-    var query ="SELECT * FROM customer where customerid= ?";
+    var personid=req.params.personid;
+    ids.push(personid);
+    var query ="SELECT * FROM PERSON where personid = ?";
     req.getConnection(function (err,connection) {
         if(err) return next(err);
 
@@ -69,173 +69,7 @@ app.get("/service/customer/:id",function (req,res,next) {
         });
     });
 });
-/*
-app.get("/service/inventory_type/:name",function (req,res,next) {
-    var ids=[];
-    var name=req.params.name;
-    ids.push(name);
-    var query ="SELECT * FROM inventory_type where name = ?";
-    req.getConnection(function (err,connection) {
-        if(err) return next(err);
 
-        connection.query(query,ids,function (err,results) {
-            if(err){
-                console.log(err);
-                return next("Mysql error, check your query");
-            }
-            res.json(results);
-
-        });
-    });
-});
-//
-// */
-// app.get("/service/inventory_type",function (req,res,next) {
-//     var ids=[];
-//
-//     var query ="SELECT * FROM inventory_type";
-//     req.getConnection(function (err,connection) {
-//         if(err) return next(err);
-//
-//         connection.query(query,ids,function (err,results) {
-//             if(err){
-//                 console.log(err);
-//                 return next("Mysql error, check your query");
-//             }
-//             res.json(results);
-//
-//         });
-//     });
-// });
-
-//
-// //CREATE
-//
-// //Sample from template services
-// var url="/service/customer/";
-// var query="INSERT INTO customer SET ?";
-// var data=['customerid','name','address','city','zipcode','email','phoneno','active'];
-//
-// //passing values into services
-//
-// postservice(url,query,data);
-//
-// //end of post service template
-// function postservice(url,sqlquery,data){
-//
-// app.post('url', function(req,res,next){//URL
-//     try{
-//         var reqObj = req.body;
-//       // console.log(reqObj);
-//         req.getConnection(function(err, conn){
-//             if(err)
-//             {
-//                 console.error('SQL Connection error: ', err);
-//                 return next(err);
-//             }
-//             else
-//             {
-//                 var insertSql = sqlquery;//SQL query
-//                 var insertValues= {};
-//                 for(var i = 0;i<data.length; i++){
-//                     insertValues[data[i]]=reqObj[data[i]];
-//                 }
-//                // next(insertValues);
-//
-//                 // var insertValues = {
-//                 //     "customerid" : reqObj.customerid,
-//                 //     "name" : reqObj.name,
-//                 //     "address" : reqObj.address,
-//                 //     "city": reqObj.city,
-//                 //     "zipcode": reqObj.zipcode,
-//                 //     "email": reqObj.email,
-//                 //     "phoneno": reqObj.phoneno,
-//                 //     "active": reqObj.active
-//                 // };//parameter
-//
-//                 var query = conn.query(insertSql, insertValues, function (err, result){
-//                     if(err){
-//                         console.error('SQL error: ', err);
-//                         return next(err);
-//                     }
-//                     console.log(result);
-//                     var name_Id = result.insertId;
-//                     res.json({"name":name_Id});
-//
-//                 });
-//             }
-//         });
-//     }
-//     catch(ex){
-//         console.error("Internal error:"+ex);
-//         return next(ex);
-//     }
-// });
-// }
-//
-// //UPDATE
-// app.put('/service/customer/:customerid', function(req,res,next){
-//     try{
-//         var reqObj = req.body;
-//         console.log(reqObj);
-//         var customerid=req.params.customerid;
-//         req.getConnection(function(err, conn){
-//             if(err)
-//             {
-//                 console.error('SQL Connection error: ', err);
-//                 return next(err);
-//             }
-//             else
-//             {
-//                 var insertSql = "UPDATE customer SET ? where customerid=?";
-//                 var insertValues = {
-//                     "name" : reqObj.name,
-//                     "address" : reqObj.address,
-//                     "city": reqObj.city,
-//                     "zipcode": reqObj.zipcode,
-//                     "email": reqObj.email,
-//                     "phoneno": reqObj.phoneno,
-//                     "active": reqObj.active
-//                 };
-//
-//                 var query = conn.query(insertSql, [insertValues, customerid], function (err, result){
-//                     if(err){
-//                         console.error('SQL error: ', err);
-//                         return next(err);
-//                     }
-//                     console.log(result);
-//                     // var name_Id = result.insertId;
-//                     res.json(result);
-//
-//                 });
-//             }
-//         });
-//     }
-//     catch(ex){
-//         console.error("Internal error:"+ex);
-//         return next(ex);
-//     }
-// });
-//
-// //DElETE
-// app.delete('/service/customer/:customerid', function(req,res, next){
-//
-//     var ids=[];
-//     var customerid=req.params.customerid;
-//     ids.push(customerid);
-//     var query = "DELETE FROM customer  WHERE customerid = ?";
-//     req.getConnection(function (err, connection) {
-//         if(err) return next(err);
-//         connection.query(query, ids, function(err, results)
-//         {
-//             if(err)
-//                 console.log("Error deleting : %s ",err );
-//
-//             res.json(results);
-//         });
-//
-//     });
-// });
 
 //setting up the static filed for hosting
 app.use(express.static(__dirname + '/'));//create shopping cart as a root
