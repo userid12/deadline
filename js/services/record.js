@@ -16,16 +16,15 @@ angular.module('dead').service('record',["$http",function($http){
     var obj = this;
     this.id=null;
 
-    $http.get("/service/person/1").then(function(response) {
-        console.log("logging to student response for id");
-        console.log(obj.inventoryTypes);
+    this.studentid =function() {
+        var url = "/service/person/" + obj.id;
+        $http.get("url").then(function (response) {
 
-        obj.studentid = response.data;
-        console.log(obj.studentid);
+            obj.studentid = response.data;
+            console.log(obj.studentid);
 
-
-    } );
-
+        });
+    }
 
 }]);
 

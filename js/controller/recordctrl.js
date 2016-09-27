@@ -1,10 +1,9 @@
 /**
  * Created by akc on 9/27/16.
  */
-angular.module('dead').controller("recordCtrl",["$scope", "record",function($scope, navService) {
+angular.module('dead').controller("recordCtrl",["$scope", "record",function($scope, record) {
 
 
-    //$scope.person="";
 
     console.log("From controller");
     console.log(record.person);
@@ -19,7 +18,7 @@ angular.module('dead').controller("recordCtrl",["$scope", "record",function($sco
                 console.log(newval);
                 console.log("New val");
                 console.log(oldVal);
-                console.log("oldVal");
+
 
                 $scope.student=newval;
             }
@@ -35,7 +34,7 @@ angular.module('dead').controller("recordCtrl",["$scope", "record",function($sco
                 console.log(newval);
                 console.log("New val");
                 console.log(oldVal);
-                console.log("oldVal");
+
 
                 $scope.studentid=newval;
             }

@@ -1,10 +1,10 @@
 /**
  * Created by akc on 9/27/16.
  */
-angular.module('dead').directive('recorddirective',function(){
+angular.module('dead').directive('recordDirective',function(){
     return{
         restrict: "EAC",
-        templateUrl: '/views/form.html',
+        templateUrl: '/views/record.html',
 
     };
 });
