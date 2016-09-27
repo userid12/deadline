@@ -3,7 +3,7 @@
  */
 angular.module('dead').service('record',["$http",function($http){
 
-
+    var obj = this;
     $http.get("/service/person").then(function(response){
         console.log("logging student from PERSON table");
         console.log("End of response");
@@ -13,7 +13,7 @@ angular.module('dead').service('record',["$http",function($http){
         console.log(obj.student);
     });
 
-    var obj = this;
+
     this.id=null;
 
     this.studentid =function() {
