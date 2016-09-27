@@ -1,9 +1,9 @@
-angular.module('app').service('titleService',["$http",function($http){
+angular.module('dead').service('titleService',["$http",function($http){
     var dela = this;
     this.currentId = null;
     
     this.getItemList = function(){
-        var url = "/service/INVENTORY_TYPE/"+dela.currentId;
+        var url = "/service/person/"+dela.currentId;
         $http.get(url).then(function(response){
             
                 dela.inventoryTitle = response.data;

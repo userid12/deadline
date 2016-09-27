@@ -1,12 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app='dead'>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="/css/stylesheet.css">
+    <link rel='stylesheet' href="/node_modules/bootstrap/dist/css/bootstrap.css">
+
 </head>
-<body>
+<body ng-controller = "navCtrl">
 
 
+
+<!--<nav class="navbar navbar-inverse">-->
+    <!--<div class="container-fluid">-->
+        <!--<div class="navbar-header">-->
+            <!--<a class="navbar-brand" href="#">Sign up</a>-->
+        <!--</div>-->
+        <!--<ul class="nav navbar-nav">-->
+            <!--<li class="active"><a href="#">Product</a></li>-->
+            <!--<li><a href="#">Services</a></li>-->
+            <!--<li><a href="#">Deals</a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+<!--</nav>-->
+
+
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3 sidenav">
+            <h4> Cubic Don </h4>
+            <div>
+                <nav-bar></nav-bar> <!--navBar for itemtypes -->
+                <main-bar></main-bar>
+            </div>
+
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Form <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Record</a></li>
+
+            </ul>
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+
+        </div><!-- /.navbar-collapse -->
+
+
+    </div>
+</div>
+
+
+
+<footer class="container-fluid">
+    <p> Copyright &copy; 2016 Hello . All rights reserved.  </p>
+</footer>
+
+
+
+<script type='text/javascript' src='/node_modules/angular/angular.js'></script>
+<script type = 'text/javascript' src='/js/dead.js'></script>
+
+<script type='text/javascript' src='/js/controller/navCtrl.js'></script>
+<script type='text/javascript' src='/js/controller/titleCtrl.js'></script>
+
+<script type='text/javascript' src='/js/directives/nav_directive.js'></script>
+<script type='text/javascript' src='/js/directives/mainCont_directive.js'></script>
+
+<script type='text/javascript' src='/js/services/serviceNavigation.js'></script>
+<script type='text/javascript' src='/js/services/service_id.js'></script>
+<script type='text/javascript' src='/js/services/serviceMain.js'></script>
 </body>
 </html>
+
+
+
+
