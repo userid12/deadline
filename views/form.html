@@ -1,27 +1,47 @@
-<label for="fname" style="display: inline-block; width: 60px; text-align:right;">First Name</label>
-<input type="text" id="fname">
-<br><br>
+<form method="post" name="myForm" novalidate>
 
-<label for="lname" style="display: inline-block; width: 60px; text-align:right;">Last Name</label>
-<input type="text" id="lname">
-<br><br>
+    <fieldset>
 
-<label for="form-num"> Phone Number</label>
-<input type="number" id="form-num" min="5" max="50" step="5">
-<br><br>
+        <legend>Register Person</legend>
 
-<label for="form-date"> Date</label>
-<input type="date" id="form-date" min="1991-02-22" max="2016-08-18">
-<br><br>
+        <tr><td>First Name </td>
+            <td><input type=text" placeholder="Enter First Name" id="txtFirst" name="first" ng-model="first" required>
+                <span class="error-msg" ng-show="myForm.first.$dirty&&myForm.first.$invalid"></span>
+                <span class="error-msg" ng-show="myForm.first.$invalid">Enter first Name</span>
+            </td>
+        </tr>
+        <br>
 
-<label for="form-month"> Month</label>
-<input type="month" id="form-month">
-<br><br>
 
-<label for="form-week"> Week</label>
-<input type="week" id="form-week">
-<br><br>
+        <tr><td>Last Name </td>
+            <td><input type=text" placeholder="Enter Last Name" id="txtLast" name="last" ng-model="last" required>
+                <span class="error-msg" ng-show="myForm.last.$dirty && myForm.last.$invalid"></span>
+                <span class="error-msg" ng-show="myForm.last.$error.required">Enter Last Name</span>
+            </td>
+        </tr>
+        <br>
 
-<label for="form-time"> time</label>
-<input type="time" id="form-time">
-<br><br>
+        <tr><td>Address </td>
+            <td><input type="text" placeholder="Enter Address" id="txtAddress" name="address" ng-model="address" required>
+                <span class="error-msg" ng-show="myForm.address.$dirty&&myForm.address.$invalid"></span>
+                <span class="error-msg" ng-show="myForm.address.$error.required">Enter Address</span>
+            </td>
+        </tr>
+        <br>
+
+
+        <tr><td>Phone Number </td>
+            <td><input type="text" placeholder="Enter Phone Number" id="txtphone" name="phone" ng-model="phone" required>
+                <span class="error-msg" ng-show="myForm.phone.$dirty&&myForm.phone.$invalid"></span>
+                <span class="error-msg" ng-show="myForm.phone.$error.required">Enter Phone Number</span>
+            </td>
+        </tr>
+        <br>
+
+
+
+        <button class="button" type="submit" ng-disabled="myForm.first.$dirty&&myForm.first.$invalid||myForm.last.$dirty&&myForm.last.$invalid||myForm.address.$dirty&&myForm.address.$invalid||myForm.phone.$dirty&&myForm.phone.$invalid">Submit</button>
+
+    </fieldset>
+
+</form>
